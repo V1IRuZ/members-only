@@ -66,3 +66,84 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+:root {
+  --width: clamp(320px, 100%, 1000px);
+  --black: #000814;
+  --dark-blue: #14213d;
+  --gold: #fca311;
+  --grey: #e5e5e5;
+  --white: #fffcf2;
+  --system-ui:
+    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.page {
+  margin: 0 auto;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  font-family: var(--system-ui);
+}
+
+.content {
+  margin: 0 auto;
+  width: var(--width);
+}
+
+/* 
+--------------------------------------
+HEADER AND FOOTER 
+--------------------------------------
+*/
+
+header {
+  min-width: 100%;
+  background-color: var(--dark-blue);
+  padding: min(24px, 5vw);
+}
+
+footer {
+  background-color: var(--dark-blue);
+}
+
+footer .content {
+  padding: min(16px, 3vw);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+footer a {
+  font-size: min(1.4rem, 4vw + 8px);
+  color: var(--white);
+}
+
+.main-links {
+  display: flex;
+  gap: 24px;
+  font-size: min(1.8rem, 5vw + 10px);
+}
+
+.main-links a {
+  color: var(--white);
+}
+
+/* 
+--------------------------------------
+MAIN CONTENT 
+--------------------------------------
+*/
+
+main.content {
+  padding: min(32px, 6vw);
+}
