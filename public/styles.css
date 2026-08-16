@@ -87,6 +87,10 @@ a {
   text-decoration: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 .page {
   margin: 0 auto;
   min-height: 100vh;
@@ -146,4 +150,57 @@ MAIN CONTENT
 
 main.content {
   padding: min(32px, 6vw);
+}
+
+/* 
+--------------------------------------
+INDEX 
+--------------------------------------
+*/
+
+.content.index {
+  display: flex;
+  justify-content: center;
+}
+
+.login-form {
+  width: min(450px, 100%);
+  height: min(400px, 100vh);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow:
+    2px 2px 2px var(--grey),
+    -2px -2px 2px var(--grey);
+  padding: min(24px, 5vw);
+}
+
+.login-form .input {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form .input input {
+  border: 2px solid var(--grey);
+  border-radius: 8px;
+  font-size: 1.3rem;
+}
+
+.login-form .btns {
+  display: flex;
+  margin-top: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.login-form .btns button,
+.login-form .btns a {
+  flex: 1;
+  text-align: center;
+  border-radius: 6px;
+  padding: 6px 12px;
+  background-color: var(--dark-blue);
+  border-style: none;
+  color: var(--white);
 }
