@@ -11,8 +11,22 @@
 <body>
   <div class="page">
     <%- include('partials/header') %>
-    <main class="content">
-      <h1>Hello World!</h1>
+    <main class="content index">
+      <form action="/login" class="login-form" method="post">
+        <h2>LOG IN</h2>
+        <div class="input">
+          <label for="login-user">USERNAME</label>
+          <input type="text" id="login-user" name="login-user">
+        </div>
+        <div class="input">
+          <label for="login-pw">PASSWORD</label>
+          <input type="password" id="login-pw" name="login-pw">
+        </div>
+        <div class="btns">
+          <button type="submit">LOG IN</button>
+          <a href="/sign-up">CREATE ACCOUNT</a>
+        </div>
+      </form>
     </main>
     <%- include('partials/footer') %>
   </div>
