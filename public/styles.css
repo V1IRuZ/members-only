@@ -154,18 +154,13 @@ main.content {
 
 /* 
 --------------------------------------
-INDEX 
+FORMS 
 --------------------------------------
 */
 
-.content.index {
-  display: flex;
-  justify-content: center;
-}
-
-.login-form {
+form {
+  margin: 0 auto;
   width: min(450px, 100%);
-  height: min(400px, 100vh);
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -176,26 +171,38 @@ INDEX
   padding: min(24px, 5vw);
 }
 
-.login-form .input {
+.input {
   display: flex;
   flex-direction: column;
 }
 
-.login-form .input input {
+.input input {
   border: 2px solid var(--grey);
   border-radius: 8px;
   font-size: 1.3rem;
 }
 
-.login-form .btns {
+fieldset {
+  border-radius: 30px;
+  border-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+legend {
+  font-size: 1.6rem;
+}
+
+form .btns {
   display: flex;
   margin-top: 24px;
   flex-wrap: wrap;
   gap: 16px;
 }
 
-.login-form .btns button,
-.login-form .btns a {
+form .btns button,
+form .btns a {
   flex: 1;
   text-align: center;
   border-radius: 6px;
@@ -203,4 +210,26 @@ INDEX
   background-color: var(--dark-blue);
   border-style: none;
   color: var(--white);
+}
+
+/* 
+--------------------------------------
+INDEX 
+--------------------------------------
+*/
+
+/* 
+--------------------------------------
+SIGN-UP
+--------------------------------------
+*/
+
+.personal-info,
+.passwords {
+  padding: min(16px, 3vw);
+}
+
+.firstname,
+.lastname {
+  flex: 1;
 }
