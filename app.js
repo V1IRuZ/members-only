@@ -15,6 +15,24 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/", indexRouter);
 
+app.use((err, req, res, next) => {
+  if (err.statusCode) {
+    res.status(err.statusCode).render("invalid", {
+      errors: [{ msg: err.message }],
+      status: err.statusCode,
+      name: err.name,
+    });
+  } else {
+    console.error(err);
+
+    res.status(500).render("invalid", {
+      errors: [{ msg: "Something went wrong!" }],
+      status: 500,
+      name: "InternalServerError",
+    });
+  }
+});
+
 app.listen(PORT, (err) => {
   if (err) {
     throw err;
