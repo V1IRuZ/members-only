@@ -13,6 +13,7 @@
     <%- include('partials/header') %>
     <main class="content">
       <form action="/sign-up" method="post" class="signup-form">
+        <%- include('partials/errors', {errors: errors}) %>
         <fieldset class="personal-info">
           <legend>Personal Information</legend>
           <div class="input firstname">
