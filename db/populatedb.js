@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS users (
   lastname VARCHAR (100) NOT NULL,
   username VARCHAR (100) NOT NULL,
   password VARCHAR (255) NOT NULL,
-  is_member BOOLEAN NOT NULL
+  is_member BOOLEAN NOT NULL DEFAULT FALSE
 );
 
 CREATE UNIQUE INDEX username_unique
