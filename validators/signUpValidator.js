@@ -1,4 +1,5 @@
 const { body } = require("express-validator");
+const User = require("../models/User");
 
 const validateSignUp = [
   body("firstname")
@@ -12,7 +13,17 @@ const validateSignUp = [
   body("username")
     .trim()
     .isLength({ min: 3, max: 50 })
-    .withMessage("The username must be 3–50 characters long"),
+    .withMessage("The username must be 3–50 characters long")
+    .custom(async (username) => {
+      const user = await User.getUserByUsername(username);
+
+      if (user) {
+        return false;
+      }
+
+      return true;
+    })
+    .withMessage("Username is already taken."),
   body("password")
     .isLength({ min: 8, max: 100 })
     .withMessage("The username must be 8–100 characters long"),
