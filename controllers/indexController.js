@@ -13,7 +13,7 @@ function getSignUp(req, res) {
 
 const postSignUp = [
   validateSignUp,
-  async (req, res) => {
+  async (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).render("sign-up", { errors: errors.array() });
