@@ -18,15 +18,14 @@ const validateSignUp = [
       const user = await User.getUserByUsername(username);
 
       if (user) {
-        return false;
+        throw new Error("Username is already taken.");
       }
 
       return true;
-    })
-    .withMessage("Username is already taken."),
+    }),
   body("password")
     .isLength({ min: 8, max: 100 })
-    .withMessage("The username must be 8–100 characters long"),
+    .withMessage("The password must be 8–100 characters long"),
   body("confirmPassword")
     .custom((value, { req }) => {
       return value === req.body.password;
