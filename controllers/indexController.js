@@ -8,15 +8,29 @@ function getHome(req, res) {
 }
 
 function getSignUp(req, res) {
-  res.render("sign-up", { errors: null });
+  res.render("sign-up", {
+    firstname: "",
+    lastname: "",
+    username: "",
+    errors: null,
+  });
 }
 
 const postSignUp = [
   validateSignUp,
   async (req, res, next) => {
     const errors = validationResult(req);
+
     if (!errors.isEmpty()) {
-      return res.status(400).render("sign-up", { errors: errors.array() });
+      const values = matchedData(req);
+      console.log(values.username);
+
+      return res.status(400).render("sign-up", {
+        firstname: values.firstname,
+        lastname: values.lastname,
+        username: values.username,
+        errors: errors.array(),
+      });
     }
 
     try {
