@@ -1,10 +1,41 @@
 const bcrypt = require("bcryptjs");
+const passport = require("passport");
 const { validationResult, matchedData } = require("express-validator");
+const validateLogIn = require("../validators/logInValidator");
 const validateSignUp = require("../validators/signUpValidator");
 const User = require("../models/User");
 
 function getHome(req, res) {
-  res.render("index");
+  res.render("index", { errors: null });
+}
+
+const postLogIn = [
+  validateLogIn,
+  (req, res, next) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      return res.status(400).render("index", {
+        errors: errors.array(),
+      });
+    }
+    next();
+  },
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/",
+    failureMessage: true,
+  }),
+];
+
+function getLogOut(req, res, next) {
+  req.logout((err) => {
+    if (err) {
+      return next(err);
+    }
+
+    res.redirect("/");
+  });
 }
 
 function getSignUp(req, res) {
@@ -23,7 +54,6 @@ const postSignUp = [
 
     if (!errors.isEmpty()) {
       const values = matchedData(req);
-      console.log(values.username);
 
       return res.status(400).render("sign-up", {
         firstname: values.firstname,
@@ -50,6 +80,8 @@ const postSignUp = [
 
 module.exports = {
   getHome,
+  postLogIn,
+  getLogOut,
   getSignUp,
   postSignUp,
 };
