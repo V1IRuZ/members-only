@@ -15,7 +15,7 @@ const validateSignUp = [
     .isLength({ min: 3, max: 50 })
     .withMessage("The username must be 3–50 characters long")
     .custom(async (username) => {
-      const user = await User.getUserByUsername(username);
+      const user = await User.findUsername(username);
 
       if (user) {
         throw new Error("Username is already taken.");
