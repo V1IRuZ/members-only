@@ -16,6 +16,24 @@ class User {
 
     return rows[0];
   }
+
+  static async getUserByUsername(username) {
+    const { rows } = await pool.query(
+      "SELECT * FROM users WHERE LOWER(username) = LOWER($1)",
+      [username],
+    );
+
+    return rows[0];
+  }
+
+  static async getUserById(id) {
+    const { rows } = await pool.query(
+      "SELECT id, firstname, lastname, username, is_member FROM users WHERE id = $1",
+      [id],
+    );
+
+    return rows[0];
+  }
 }
 
 module.exports = User;
