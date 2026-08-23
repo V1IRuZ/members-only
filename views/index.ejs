@@ -12,21 +12,27 @@
   <div class="page">
     <%- include('partials/header') %>
     <main class="content index">
-      <form action="/login" class="login-form" method="post">
+      <% if (locals.currentUser) { %>
+      <h1>WELCOME BACK <%= currentUser.username %></h1>
+      <a href="/log-out">LOG OUT</a>
+      <% } else { %>
+      <form action="/log-in" class="login-form" method="post">
         <h2>LOG IN</h2>
+        <%- include('partials/errors', {errors: errors}) %>
         <div class="input">
           <label for="login-user">USERNAME</label>
-          <input type="text" id="login-user" name="login-user">
+          <input type="text" id="login-user" name="username">
         </div>
         <div class="input">
           <label for="login-pw">PASSWORD</label>
-          <input type="password" id="login-pw" name="login-pw">
+          <input type="password" id="login-pw" name="password">
         </div>
         <div class="btns">
           <button type="submit">LOG IN</button>
           <a href="/sign-up">CREATE ACCOUNT</a>
         </div>
       </form>
+      <% } %>
     </main>
     <%- include('partials/footer') %>
   </div>
