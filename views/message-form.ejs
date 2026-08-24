@@ -13,6 +13,7 @@
     <%- include('partials/header') %>
     <main class="content">
       <form action="/messages/new" method="post">
+        <%- include('partials/errors', {errors: errors}) %>
         <div class="input">
           <label for="title">TITLE</label>
           <input type="text" id="title" name="title">
