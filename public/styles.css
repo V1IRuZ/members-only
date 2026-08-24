@@ -177,10 +177,15 @@ form {
   flex-direction: column;
 }
 
-.input input {
+.input input,
+.input textarea {
   border: 2px solid var(--grey);
   border-radius: 8px;
   font-size: 1.3rem;
+}
+
+.input textarea {
+  resize: none;
 }
 
 fieldset {
