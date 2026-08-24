@@ -8,12 +8,15 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 const indexRouter = require("./routes/indexRouter");
+const messagesRouter = require("./routes/messagesRouter");
 
 const assetsPath = path.join(__dirname, "public");
 app.use(express.static(assetsPath));
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+
+app.use(express.urlencoded({ extended: true }));
 
 app.use(
   session({
@@ -31,9 +34,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.urlencoded({ extended: true }));
-
 app.use("/", indexRouter);
+app.use("/messages", messagesRouter);
 
 app.use((err, req, res, next) => {
   if (err.statusCode) {
