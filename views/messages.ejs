@@ -18,6 +18,7 @@
         <a href="/messages/new" class="new-message">+ NEW MESSAGE</a>
         <% } %>
       </div>
+      <%- include('partials/message-list', {msgs: msgs}) %>
     </main>
     <%- include('partials/footer') %>
   </div>
