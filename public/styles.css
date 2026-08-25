@@ -244,6 +244,55 @@ MESSAGES
   font-weight: 900;
 }
 
+.msg-list {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.msg {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 150px 6fr;
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: min(1vw, 16px);
+  background-color: var(--dark-blue);
+  color: var(--white);
+}
+
+.msg .profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.msg h3 {
+  width: 150px;
+  text-align: center;
+}
+
+.msg img {
+  height: auto;
+  width: 136px;
+}
+
+.msg .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.msg .text p {
+  font-size: 1.1rem;
+}
+
+.msg .text span {
+  color: var(--gold);
+}
+
 /* 
 --------------------------------------
 SIGN-UP

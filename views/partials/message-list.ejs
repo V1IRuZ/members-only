@@ -1,12 +1,19 @@
 <ul class="msg-list">
   <% msgs.map((msg) => { %>
   <li class="msg">
-    <h2><%= msg.title %></h2>
-    <% if (currentUser) { %>
-    <h3>FROM <%= msg.username %></h3>
-    <% } %>
-    <p><%= msg.message %></p>
-    <span><%= msg.created_at %></span>
+    <div class="profile">
+      <img src="<%= msg.is_member ? '/icons/account-star.svg' : '/icons/account.svg' %>" alt="">
+      <% if (currentUser) { %>
+      <h3><%= msg.username %></h3>
+      <% } %>
+    </div>
+    <div class="text">
+      <div>
+        <h2><%= msg.title %></h2>
+        <p><%= msg.message %></p>
+      </div>
+      <span><%= msg.created_at %></span>
+    </div>
   </li>
   <% }) %>
 </ul>
