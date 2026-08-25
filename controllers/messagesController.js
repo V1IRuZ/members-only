@@ -2,8 +2,9 @@ const { validationResult, matchedData } = require("express-validator");
 const { validateNewMessage } = require("../validators/messagesValidator");
 const Message = require("../models/Message");
 
-function getMessages(req, res) {
-  res.render("messages");
+async function getMessages(req, res) {
+  const msgs = await Message.getMessages();
+  res.render("messages", { msgs: msgs });
 }
 
 function getMessageForm(req, res) {
