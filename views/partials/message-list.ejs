@@ -1,0 +1,12 @@
+<ul class="msg-list">
+  <% msgs.map((msg) => { %>
+  <li class="msg">
+    <h2><%= msg.title %></h2>
+    <% if (currentUser) { %>
+    <h3>FROM <%= msg.username %></h3>
+    <% } %>
+    <p><%= msg.message %></p>
+    <span><%= msg.created_at %></span>
+  </li>
+  <% }) %>
+</ul>
