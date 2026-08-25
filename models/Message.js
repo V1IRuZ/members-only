@@ -10,7 +10,7 @@ class Message {
 
   static async getMessages() {
     const { rows } = await pool.query(
-      `SELECT m.id, m.title, m.message, m.created_at, u.username 
+      `SELECT m.id, m.title, m.message, m.created_at, u.username, u.is_member 
         FROM messages m
         JOIN users u
         ON m.user_id = u.id
