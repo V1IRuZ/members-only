@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Membership</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+  <div class="page">
+    <%- include('partials/header')  %>
+    <main class="content">
+      <h1 class="hero-text">BECOME MEMBER TODAY!!</h1>
+      <div class="membership">
+        <img src="/icons/account-star.svg" alt="">
+        <div class="benefits">
+          <h2>Benefits include</h2>
+          <ul>
+            <li>See who wrote the message</li>
+            <li>Get a new updated profile icon</li>
+            <li>Your posts are on the front page</li>
+          </ul>
+        </div>
+      </div>
+      <form action="/membership" method="post">
+        <%- include('partials/errors', {errors: errors}) %>
+        <div class="input">
+          <label for="passcode">PASSCODE</label>
+          <input type="text" id="passcode" name="passcode">
+        </div>
+        <div class="btns">
+          <button type="submit">SUBMIT</button>
+        </div>
+      </form>
+    </main>
+    <%- include('partials/footer') %>
+  </div>
+</body>
+
+</html>
