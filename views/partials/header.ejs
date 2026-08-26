@@ -3,6 +3,9 @@
     <ul class="main-links">
       <li><a href="/">HOME</a></li>
       <li><a href="/messages">MESSAGES</a></li>
+      <% if (locals.currentUser) { %>
+      <li><a href="/membership">MEMBERSHIP</a></li>
+      <% } %>
       <li><a href="/sign-up">SIGN UP</a></li>
     </ul>
   </nav>
