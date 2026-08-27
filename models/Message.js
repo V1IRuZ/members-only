@@ -20,6 +20,20 @@ class Message {
 
     return rows;
   }
+
+  static async getMemberMessages() {
+    const { rows } = await pool.query(
+      `SELECT m.id, m.title, m.message, m.created_at, u.username, u.is_member 
+        FROM messages m
+        JOIN users u
+        ON m.user_id = u.id
+        WHERE u.is_member = TRUE
+        ORDER BY m.created_at DESC
+      `,
+    );
+
+    return rows
+  }
 }
 
 module.exports = Message;
