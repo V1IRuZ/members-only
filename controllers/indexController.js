@@ -5,19 +5,24 @@ const validateLogIn = require("../validators/logInValidator");
 const validateSignUp = require("../validators/signUpValidator");
 const validateMembership = require("../validators/membershipValidator");
 const User = require("../models/User");
+const Message = require("../models/Message");
 
-function getHome(req, res) {
-  res.render("index", { errors: null });
+async function getHome(req, res) {
+  const msgs = await Message.getMemberMessages();
+  res.render("index", { errors: null, msgs: msgs });
 }
 
 const postLogIn = [
   validateLogIn,
-  (req, res, next) => {
+  async (req, res, next) => {
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
+      const msgs = await Message.getMemberMessages();
+
       return res.status(400).render("index", {
         errors: errors.array(),
+        msgs: msgs,
       });
     }
     next();
