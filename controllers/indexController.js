@@ -3,6 +3,7 @@ const passport = require("passport");
 const { validationResult, matchedData } = require("express-validator");
 const validateLogIn = require("../validators/logInValidator");
 const validateSignUp = require("../validators/signUpValidator");
+const validateMembership = require("../validators/membershipValidator");
 const User = require("../models/User");
 
 function getHome(req, res) {
@@ -78,10 +79,32 @@ const postSignUp = [
   },
 ];
 
+function getMembership(req, res) {
+  res.render("membership", { errors: null });
+}
+
+const postMembership = [
+  validateMembership,
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).render("membership", {
+        errors: errors.array(),
+      });
+    }
+
+    const { id } = req.user;
+    await User.updateUserMembership(id);
+    res.redirect("/");
+  },
+];
+
 module.exports = {
   getHome,
   postLogIn,
   getLogOut,
   getSignUp,
   postSignUp,
+  getMembership,
+  postMembership,
 };
