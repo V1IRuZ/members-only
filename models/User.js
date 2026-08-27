@@ -34,6 +34,10 @@ class User {
 
     return rows[0];
   }
+
+  static async updateUserMembership(id) {
+    await pool.query("UPDATE users SET is_member = TRUE WHERE id = $1", [id]);
+  }
 }
 
 module.exports = User;
