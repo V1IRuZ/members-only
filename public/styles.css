@@ -295,6 +295,44 @@ MESSAGES
 
 /* 
 --------------------------------------
+MEMBERSHIP
+--------------------------------------
+*/
+
+.hero-text {
+  text-align: center;
+}
+
+.membership {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  align-items: center;
+}
+
+.benefits {
+  padding: min(16px, 1vw);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+}
+
+.benefits h2 {
+  font-size: 1.7rem;
+  margin-bottom: 12px;
+}
+
+.membership ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: initial;
+}
+
+.membership li {
+  font-size: 1.4rem;
+}
+
+/* 
+--------------------------------------
 SIGN-UP
 --------------------------------------
 */
