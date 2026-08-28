@@ -331,6 +331,17 @@ MEMBERSHIP
   font-size: 1.4rem;
 }
 
+.current-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.current-member img {
+  width: min(500px, 100%);
+}
+
 /* 
 --------------------------------------
 SIGN-UP
