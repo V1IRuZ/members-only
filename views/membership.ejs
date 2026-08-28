@@ -12,6 +12,7 @@
   <div class="page">
     <%- include('partials/header')  %>
     <main class="content">
+      <% if (locals.currentUser.is_member === 'false') { %>
       <h1 class="hero-text">BECOME MEMBER TODAY!!</h1>
       <div class="membership">
         <img src="/icons/account-star.svg" alt="">
@@ -34,6 +35,12 @@
           <button type="submit">SUBMIT</button>
         </div>
       </form>
+      <% } else { %>
+      <div class="current-member">
+        <h1 class="hero-text">Thank you for your membership!</h1>
+        <img src="/icons/account-star.svg" alt="">
+      </div>
+      <% } %>
     </main>
     <%- include('partials/footer') %>
   </div>
