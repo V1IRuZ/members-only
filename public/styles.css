@@ -117,6 +117,22 @@ header {
   padding: min(24px, 5vw);
 }
 
+.main-links {
+  display: flex;
+  gap: min(24px, 1vw);
+  padding: 0;
+  font-size: min(1.8rem, 5vw + 10px);
+}
+
+.main-links a {
+  padding: 4px 8px;
+  color: var(--white);
+}
+
+.log-in-status {
+  margin-left: auto;
+}
+
 footer {
   background-color: var(--dark-blue);
 }
@@ -130,16 +146,6 @@ footer .content {
 
 footer a {
   font-size: min(1.4rem, 4vw + 8px);
-  color: var(--white);
-}
-
-.main-links {
-  display: flex;
-  gap: 24px;
-  font-size: min(1.8rem, 5vw + 10px);
-}
-
-.main-links a {
   color: var(--white);
 }
 
