@@ -1,7 +1,6 @@
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const { validationResult, matchedData } = require("express-validator");
-const validateLogIn = require("../validators/logInValidator");
 const validateSignUp = require("../validators/signUpValidator");
 const validateMembership = require("../validators/membershipValidator");
 const User = require("../models/User");
@@ -14,24 +13,11 @@ async function getHome(req, res) {
 
   delete req.session.messages;
 
-  res.render("index", { errors: null, msgs: msgs, loginMessage: loginMessage });
+  res.render("index", { msgs: msgs, loginMessage: loginMessage });
 }
 
 const postLogIn = [
   validateLogIn,
-  async (req, res, next) => {
-    const errors = validationResult(req);
-
-    if (!errors.isEmpty()) {
-      const msgs = await Message.getMemberMessages();
-
-      return res.status(400).render("index", {
-        errors: errors.array(),
-        msgs: msgs,
-      });
-    }
-    next();
-  },
   passport.authenticate("local", {
     successRedirect: "/",
     failureRedirect: "/",

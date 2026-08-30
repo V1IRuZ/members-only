@@ -21,7 +21,6 @@
         <% if (locals.loginMessage) { %>
         <p><%= loginMessage %></p>
         <% } %>
-        <%- include('partials/errors', {errors: errors}) %>
         <div class="input">
           <label for="login-user">USERNAME</label>
           <input type="text" id="login-user" name="username">
