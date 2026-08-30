@@ -10,7 +10,11 @@ const CustomNotFoundError = require("../errors/CustomNotFoundError");
 
 async function getHome(req, res) {
   const msgs = await Message.getMemberMessages();
-  res.render("index", { errors: null, msgs: msgs });
+  const loginMessage = req.session.messages?.[0];
+
+  delete req.session.messages;
+
+  res.render("index", { errors: null, msgs: msgs, loginMessage: loginMessage });
 }
 
 const postLogIn = [
