@@ -34,8 +34,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/", indexRouter);
 app.use("/messages", messagesRouter);
+app.use("/", indexRouter);
 
 app.use((err, req, res, next) => {
   if (err.statusCode) {

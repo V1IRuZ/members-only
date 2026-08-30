@@ -6,6 +6,7 @@ const validateSignUp = require("../validators/signUpValidator");
 const validateMembership = require("../validators/membershipValidator");
 const User = require("../models/User");
 const Message = require("../models/Message");
+const CustomNotFoundError = require("../errors/CustomNotFoundError");
 
 async function getHome(req, res) {
   const msgs = await Message.getMemberMessages();
@@ -104,6 +105,10 @@ const postMembership = [
   },
 ];
 
+function getInvalidRoute(req, res) {
+  throw new CustomNotFoundError("Page not found");
+}
+
 module.exports = {
   getHome,
   postLogIn,
@@ -112,4 +117,5 @@ module.exports = {
   postSignUp,
   getMembership,
   postMembership,
+  getInvalidRoute,
 };
