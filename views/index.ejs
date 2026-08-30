@@ -18,6 +18,9 @@
       <% } else { %>
       <form action="/log-in" class="login-form" method="post">
         <h2>LOG IN</h2>
+        <% if (locals.loginMessage) { %>
+        <p><%= loginMessage %></p>
+        <% } %>
         <%- include('partials/errors', {errors: errors}) %>
         <div class="input">
           <label for="login-user">USERNAME</label>
