@@ -1,5 +1,4 @@
 const bcrypt = require("bcryptjs");
-const passport = require("passport");
 const { validationResult, matchedData } = require("express-validator");
 const validateSignUp = require("../validators/signUpValidator");
 const validateMembership = require("../validators/membershipValidator");
@@ -16,14 +15,6 @@ async function getHome(req, res) {
   res.render("index", { msgs: msgs, loginMessage: loginMessage });
 }
 
-const postLogIn = [
-  validateLogIn,
-  passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/",
-    failureMessage: true,
-  }),
-];
 
 function getLogOut(req, res, next) {
   req.logout((err) => {
@@ -101,7 +92,6 @@ function getInvalidRoute(req, res) {
 
 module.exports = {
   getHome,
-  postLogIn,
   getLogOut,
   getSignUp,
   postSignUp,
