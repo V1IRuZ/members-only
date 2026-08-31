@@ -18,26 +18,26 @@
           <legend>Personal Information</legend>
           <div class="input firstname">
             <label for="firstname">FIRST NAME</label>
-            <input type="text" id="firstname" name="firstname" value="<%= firstname %>">
+            <input type="text" id="firstname" name="firstname" value="<%= firstname %>" minlength="2" maxlength="30" required>
           </div>
           <div class="input lastname">
             <label for="lastname">LAST NAME</label>
-            <input type="text" id="lastname" name="lastname" value="<%= lastname %>">
+            <input type="text" id="lastname" name="lastname" value="<%= lastname %>" minlength="3" maxlength="30" required>
           </div>
         </fieldset>
         <fieldset class="passwords">
           <legend>Account</legend>
           <div class="input">
             <label for="username">USERNAME</label>
-            <input type="text" id="username" name="username" value="<%= username %>">
+            <input type="text" id="username" name="username" value="<%= username %>" minlength="3" maxlength="50" required>
           </div>
           <div class="input">
             <label for="password">PASSWORD</label>
-            <input type="password" id="password" name="password">
+            <input type="password" id="password" name="password" minlength="8" maxlength="100" required>
           </div>
           <div class="input">
             <label for="confirm-password">CONFIRM PASSWORD</label>
-            <input type="password" id="confirm-password" name="confirmPassword">
+            <input type="password" id="confirm-password" name="confirmPassword" minlength="8" maxlength="100" required>
           </div>
         </fieldset>
         <div class="btns">
