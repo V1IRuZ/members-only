@@ -12,7 +12,7 @@
   <div class="page">
     <%- include('partials/header')  %>
     <main class="content">
-      <% if (locals.currentUser.is_member === 'false') { %>
+      <% if (!currentUser?.is_member) { %>
       <h1 class="hero-text">BECOME MEMBER TODAY!!</h1>
       <div class="membership">
         <img src="/icons/account-star.svg" alt="">
