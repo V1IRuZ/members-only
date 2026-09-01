@@ -16,11 +16,11 @@
         <%- include('partials/errors', {errors: errors}) %>
         <div class="input">
           <label for="title">TITLE</label>
-          <input type="text" id="title" name="title">
+          <input type="text" id="title" name="title" minlength="1" maxlength="50" required>
         </div>
         <div class="input">
           <label for="message">MESSAGE</label>
-          <textarea name="message" rows="6" id="message"></textarea>
+          <textarea name="message" rows="6" id="message" minlength="1" maxlength="300" required></textarea>
         </div>
         <div class="btns">
           <button type="submit">SUBMIT</button>
