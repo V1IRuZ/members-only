@@ -13,7 +13,14 @@
     <%- include('partials/header') %>
     <main class="content index">
       <% if (locals.currentUser) { %>
-      <h1>WELCOME BACK <%= currentUser.username %></h1>
+      <div class="current-user">
+        <img src="<%= currentUser.is_member ? '/icons/account-star.svg' : '/icons/account.svg' %>" alt="">
+        <div class="details">
+          <h1>WELCOME BACK <%= currentUser.username %></h1>
+          <h2><%= currentUser.firstname %> <%= currentUser.lastname %></h2>
+          <h2>ACCOUNT: <%= currentUser.is_member ? "MEMBER" : "STANDARD" %></h2>
+        </div>
+      </div>
       <a href="/log-out">LOG OUT</a>
       <% } else { %>
       <form action="/log-in" class="login-form" method="post">
@@ -35,6 +42,7 @@
         </div>
       </form>
       <% } %>
+      <h2>MEMBER MESSAGES</h2>
       <%- include('partials/message-list', {msgs: msgs}) %>
     </main>
     <%- include('partials/footer') %>
