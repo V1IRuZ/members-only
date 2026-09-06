@@ -32,7 +32,21 @@ class Message {
       `,
     );
 
-    return rows
+    return rows;
+  }
+
+  static async getUserNumOfMessages(id) {
+    const { rows } = await pool.query(
+      ` SELECT COUNT(m.user_id) 
+        FROM users u 
+        JOIN messages m 
+        ON u.id = m.user_id 
+        WHERE m.user_id = $1
+      `,
+      [id],
+    );
+
+    return rows[0];
   }
 }
 
