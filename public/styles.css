@@ -1,3 +1,13 @@
+@font-face {
+  font-family: "Roboto";
+  src:
+    url("./fonts/Roboto-Regular.woff2") format("woff2"),
+    url("./fonts/Roboto-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /*
   Josh's Custom CSS Reset
   https://www.joshwcomeau.com/css/custom-css-reset/
@@ -98,7 +108,7 @@ button {
   min-height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  font-family: var(--system-ui);
+  font-family: "Roboto", var(--system-ui);
 }
 
 .content {
