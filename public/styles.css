@@ -234,19 +234,36 @@ INDEX
 .current-user {
   display: grid;
   gap: min(24px, 3vw);
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto 1fr auto;
+  background-color: var(--dark-blue);
+  border-radius: 10px;
+  border: 2px solid var(--gold);
+  padding: min(16px, 2vw);
 }
 
 .current-user img {
   height: auto;
   width: 200px;
   border-radius: 10px;
-  border: 2px solid var(--dark-blue);
-  box-shadow: var(--shadow);
 }
 
 .current-user .details {
+  color: var(--white);
   padding: min(16px, 2vw);
+}
+
+.current-user .options {
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+}
+
+.current-user .options a {
+  border-radius: 6px;
+  padding: 6px 12px;
+  color: var(--white);
+  font-weight: 900;
+  border: 2px solid var(--gold);
 }
 
 .login-message {
