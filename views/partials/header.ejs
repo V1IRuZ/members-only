@@ -1,13 +1,36 @@
 <header>
   <nav class="content">
     <ul class="main-links">
-      <li><a href="/">HOME</a></li>
-      <li><a href="/messages">MESSAGES</a></li>
+      <a href="/">
+        <img src="/icons/account.svg" alt="">
+        <span>HOME</span>
+      </a>
+      <li>
+        <a href="/messages">
+          <img src="/icons/messages.svg" alt="">
+          <span>MESSAGES</span>
+        </a>
+      </li>
       <% if (locals.currentUser) { %>
-      <li><a href="/membership">MEMBERSHIP</a></li>
-      <li class="log-in-status"><a href="/log-out">LOG OUT</a></li>
+      <li>
+        <a href="/membership">
+          <img src="/icons/membership.svg" alt="">
+          <span>MEMBERSHIP</span>
+        </a>
+      </li>
+      <li class="log-in-status">
+        <a href="/log-out">
+          <img src="/icons/logout.svg" alt="">
+          <span>LOG OUT</span>
+        </a>
+      </li>
       <% } else { %>
-      <li class="log-in-status"><a href="/sign-up">SIGN UP</a></li>
+      <li class="log-in-status">
+        <a href="/sign-up">
+          <img src="/icons/register.svg" alt="">
+          <span>SIGN UP</span>
+        </a>
+      </li>
       <% } %>
     </ul>
   </nav>
