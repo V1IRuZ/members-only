@@ -311,6 +311,19 @@ INDEX
   border: 2px solid var(--gold);
 }
 
+.posts {
+  padding: 6px 12px;
+  border-radius: 10px;
+  text-align: center;
+  border: 2px solid var(--gold);
+  background-color: var(--dark-blue);
+  margin-top: min(32px, 4vw);
+  font-family: var(--font-stack);
+  text-shadow: var(--text-shadow);
+  font-size: min(3rem, 5vw + 10px);
+  color: var(--gold);
+}
+
 .login-message {
   color: var(--red);
 }
