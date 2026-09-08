@@ -103,6 +103,10 @@ h6 {
   --font-stack: "Super Bouncer", "Roboto", var(--system-ui);
 }
 
+body {
+  background: linear-gradient(45deg, var(--dark-blue), var(--white));
+}
+
 ul {
   list-style: none;
 }
