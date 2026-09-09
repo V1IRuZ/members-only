@@ -27,16 +27,22 @@ class User {
   }
 
   static async getUserById(id) {
-    const { rows } = await pool.query(
-      "SELECT id, firstname, lastname, username, is_member FROM users WHERE id = $1",
-      [id],
-    );
+    const { rows } = await pool.query("SELECT * FROM users WHERE id = $1", [
+      id,
+    ]);
 
     return rows[0];
   }
 
   static async updateUserMembership(id) {
     await pool.query("UPDATE users SET is_member = TRUE WHERE id = $1", [id]);
+  }
+
+  static async updateUserPassword(id, password) {
+    await pool.query("UPDATE users SET password = $1 WHERE id = $2", [
+      password,
+      id,
+    ]);
   }
 }
 
