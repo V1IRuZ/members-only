@@ -2,6 +2,7 @@ const bcrypt = require("bcryptjs");
 const { validationResult, matchedData } = require("express-validator");
 const validateSignUp = require("../validators/signUpValidator");
 const validateMembership = require("../validators/membershipValidator");
+const validateNewPassword = require("../validators/newPasswordValidator");
 const User = require("../models/User");
 const Message = require("../models/Message");
 const CustomNotFoundError = require("../errors/CustomNotFoundError");
@@ -98,6 +99,53 @@ const postMembership = [
   },
 ];
 
+function getChangePassword(req, res) {
+  res.render("change-password", { errors: null });
+}
+
+const postChangePassword = [
+  validateNewPassword,
+  async (req, res, next) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      return res
+        .status(400)
+        .render("change-password", { errors: errors.array() });
+    }
+
+    const { newPassword } = matchedData(req);
+    console.log(req.body.currentPassword);
+
+    try {
+      const user = await User.getUserById(req.user.id);
+
+      const passwordMatch = await bcrypt.compare(
+        req.body.currentPassword,
+        user.password,
+      );
+
+      if (!passwordMatch) {
+        return res.status(400).render("change-password", {
+          errors: [{ msg: "Current password is incorrect." }],
+        });
+      }
+
+      const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+      console.log(hashedPassword);
+
+      // UPDATE NEW PASSWORD IN DATABASE
+      await User.updateUserPassword(req.user.id, hashedPassword);
+
+      res.redirect("/");
+    } catch (err) {
+      console.error(err);
+      next(err);
+    }
+  },
+];
+
 function getInvalidRoute(req, res) {
   throw new CustomNotFoundError("Page not found");
 }
@@ -109,5 +157,7 @@ module.exports = {
   postSignUp,
   getMembership,
   postMembership,
+  getChangePassword,
+  postChangePassword,
   getInvalidRoute,
 };
