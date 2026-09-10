@@ -1,6 +1,9 @@
 const { body } = require("express-validator");
 
 module.exports = [
+  body("currentPassword")
+    .notEmpty()
+    .withMessage("You must enter your current password"),
   body("newPassword")
     .isLength({ min: 8, max: 100 })
     .withMessage("The password must be 8–100 characters long"),
