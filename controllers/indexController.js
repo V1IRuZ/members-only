@@ -114,14 +114,13 @@ const postChangePassword = [
         .render("change-password", { errors: errors.array() });
     }
 
-    const { newPassword } = matchedData(req);
-    console.log(req.body.currentPassword);
+    const { currentPassword, newPassword } = matchedData(req);
 
     try {
       const user = await User.getUserById(req.user.id);
 
       const passwordMatch = await bcrypt.compare(
-        req.body.currentPassword,
+        currentPassword,
         user.password,
       );
 
@@ -133,9 +132,6 @@ const postChangePassword = [
 
       const hashedPassword = await bcrypt.hash(newPassword, 10);
 
-      console.log(hashedPassword);
-
-      // UPDATE NEW PASSWORD IN DATABASE
       await User.updateUserPassword(req.user.id, hashedPassword);
 
       res.redirect("/");
