@@ -104,7 +104,7 @@ h6 {
 }
 
 body {
-  background: linear-gradient(45deg, var(--dark-blue), var(--white));
+  background: linear-gradient(45deg, var(--dark-blue), grey);
 }
 
 ul {
@@ -212,13 +212,32 @@ form {
   margin: 0 auto;
   width: min(450px, 100%);
   border-radius: 20px;
+  border: 2px solid var(--gold);
   display: flex;
   flex-direction: column;
   gap: 16px;
-  box-shadow:
-    2px 2px 2px var(--grey),
-    -2px -2px 2px var(--grey);
   padding: min(24px, 5vw);
+  background-color: var(--dark-blue);
+}
+
+form h2 {
+  font-size: 2.4rem;
+  font-family: var(--font-stack);
+  color: var(--gold);
+  text-shadow: var(--text-shadow);
+}
+
+form img {
+  margin: 0 auto;
+  border-radius: 50%;
+  padding: 10px;
+  width: 100px;
+  background-color: var(--black);
+}
+
+form label {
+  margin-left: 6px;
+  color: var(--white);
 }
 
 .input {
@@ -247,6 +266,8 @@ fieldset {
 
 legend {
   font-size: 1.6rem;
+  color: var(--white);
+  font-weight: 900;
 }
 
 form .btns {
@@ -260,13 +281,12 @@ form .btns button,
 form .btns a {
   flex: 1;
   text-align: center;
+  border: 2px solid var(--gold);
   border-radius: 6px;
   padding: 6px 12px;
   background-color: var(--dark-blue);
-  border-style: none;
   color: var(--white);
 }
-
 /* 
 --------------------------------------
 INDEX 
@@ -409,7 +429,13 @@ MEMBERSHIP
 
 .hero-text {
   font-family: var(--font-stack);
+  color: var(--gold);
+  border-radius: 10px;
+  padding: 8px 12px;
+  text-shadow: var(--text-shadow);
+  font-size: min(2.3rem, 5vw + 10px);
   text-align: center;
+  margin-bottom: min(36px, 5vw + 8px);
 }
 
 .membership {

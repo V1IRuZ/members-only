@@ -12,7 +12,8 @@
   <div class="page">
     <%- include('partials/header') %>
     <main class="content">
-      <form action="/messages/new" method="post">
+      <form action="/messages/new" method="post" class="message-form">
+        <h2>Create a new post</h2>
         <%- include('partials/errors', {errors: errors}) %>
         <div class="input">
           <label for="title">TITLE</label>
