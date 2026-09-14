@@ -11,11 +11,13 @@
 <body>
   <div class="page">
     <%- include('partials/header') %>
-    <main class="error">
-      <h2>Oops! Something Went Wrong.</h2>
-      <div class="error-msg">
-        <h3><%= status %> <%= name %></h3>
-        <%- include('partials/errors', {errors: errors}) %>
+    <main class="content error-page">
+      <div class="error-info">
+        <h2>Oops! Something Went Wrong.</h2>
+        <div class="error-msg">
+          <h3><%= status %> <%= name %></h3>
+          <%- include('partials/errors', {errors: errors}) %>
+        </div>
       </div>
     </main>
     <%- include('partials/footer') %>
