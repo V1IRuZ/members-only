@@ -35,7 +35,7 @@ class User {
   }
 
   static async updateUserMembership(id) {
-    await pool.query("UPDATE users SET is_member = TRUE WHERE id = $1", [id]);
+    await pool.query("UPDATE users SET role = 1 WHERE id = $1", [id]);
   }
 
   static async updateUserPassword(id, password) {

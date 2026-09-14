@@ -10,7 +10,7 @@ class Message {
 
   static async getMessages() {
     const { rows } = await pool.query(
-      `SELECT m.id, m.title, m.message, m.created_at, u.username, u.is_member 
+      `SELECT m.id, m.title, m.message, m.created_at, u.username, u.role 
         FROM messages m
         JOIN users u
         ON m.user_id = u.id
@@ -23,11 +23,11 @@ class Message {
 
   static async getMemberMessages() {
     const { rows } = await pool.query(
-      `SELECT m.id, m.title, m.message, m.created_at, u.username, u.is_member 
+      `SELECT m.id, m.title, m.message, m.created_at, u.username, u.role 
         FROM messages m
         JOIN users u
         ON m.user_id = u.id
-        WHERE u.is_member = TRUE
+        WHERE u.role > 0
         ORDER BY m.created_at DESC
       `,
     );
