@@ -10,8 +10,10 @@
 
 <body>
   <div class="page">
+    <%- include('partials/header') %>
     <main class="content">
       <form action="/admin" method="post">
+        <%- include('partials/errors', {errors: errors}) %>
         <h2>Upgrade user to administrator</h2>
         <div class="input">
           <label for="admin">PASSCODE</label>
@@ -19,6 +21,7 @@
         </div>
       </form>
     </main>
+    <%- include('partials/footer') %>
   </div>
 </body>
 
