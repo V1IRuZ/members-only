@@ -38,6 +38,10 @@ class User {
     await pool.query("UPDATE users SET role = 1 WHERE id = $1", [id]);
   }
 
+  static async updateUserToAdmin(id) {
+    await pool.query("UPDATE users SET role = 2 WHERE id = $1", [id]);
+  }
+
   static async updateUserPassword(id, password) {
     await pool.query("UPDATE users SET password = $1 WHERE id = $2", [
       password,
