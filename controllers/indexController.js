@@ -2,6 +2,7 @@ const bcrypt = require("bcryptjs");
 const { validationResult, matchedData } = require("express-validator");
 const validateSignUp = require("../validators/signUpValidator");
 const validateMembership = require("../validators/membershipValidator");
+const validateAdmin = require("../validators/adminValidator");
 const validateNewPassword = require("../validators/newPasswordValidator");
 const User = require("../models/User");
 const Message = require("../models/Message");
@@ -99,6 +100,27 @@ const postMembership = [
   },
 ];
 
+function getAdmin(req, res) {
+  res.render("admin", { errors: null });
+}
+
+const postAdmin = [
+  validateAdmin,
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).render("admin", {
+        errors: errors.array(),
+      });
+    }
+
+    const { id } = req.user;
+
+    await User.updateUserToAdmin(id);
+    res.redirect("/");
+  },
+];
+
 function getChangePassword(req, res) {
   res.render("change-password", { errors: null });
 }
@@ -153,6 +175,8 @@ module.exports = {
   postSignUp,
   getMembership,
   postMembership,
+  getAdmin,
+  postAdmin,
   getChangePassword,
   postChangePassword,
   getInvalidRoute,
