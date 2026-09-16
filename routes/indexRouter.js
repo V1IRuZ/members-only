@@ -19,6 +19,8 @@ indexRouter.get("/sign-up", requireUnregistered, controller.getSignUp);
 indexRouter.post("/sign-up", controller.postSignUp);
 indexRouter.get("/membership", requireAuth, controller.getMembership);
 indexRouter.post("/membership", controller.postMembership);
+indexRouter.get("/admin", requireAuth, controller.getAdmin);
+indexRouter.post("/admin", controller.postAdmin);
 indexRouter.get("/change-password", requireAuth, controller.getChangePassword);
 indexRouter.post("/change-password", controller.postChangePassword);
 indexRouter.get("/{*splat}", controller.getInvalidRoute);
