@@ -2,7 +2,7 @@
   <% msgs.map((msg) => { %>
   <li class="msg">
     <div class="profile">
-      <img src="<%= msg.role > 0 ? '/icons/account-star.svg' : '/icons/account.svg' %>" alt="">
+      <img src="<%= msg.role == 0 ? '/icons/account.svg' : msg.role === 1 ? '/icons/account-star.svg' : '/icons/account-tie.svg' %>" alt="">
       <% if (currentUser?.role > 0) { %>
       <h3><%= msg.username %></h3>
       <% } %>
@@ -16,6 +16,11 @@
       <span><%= msg.created_at %></span>
       <% } %>
     </div>
+    <% if (currentUser?.role > 1) { %>
+    <div class="admin-remove">
+      <a href="/messages/<%= msg.id %>/delete" class="delete">DELETE</a>
+    </div>
+    <% } %>
   </li>
   <% }) %>
 </ul>
