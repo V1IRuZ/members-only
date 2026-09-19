@@ -1,4 +1,8 @@
-const { body } = require("express-validator");
+const { body, param } = require("express-validator");
+
+const validateMessageId = param("id")
+  .isInt({ min: 1 })
+  .withMessage("The message route must correspond to the message ID integer");
 
 const validateNewMessage = [
   body("title")
@@ -13,4 +17,5 @@ const validateNewMessage = [
 
 module.exports = {
   validateNewMessage,
+  validateMessageId,
 };
