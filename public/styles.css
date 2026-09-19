@@ -288,6 +288,15 @@ form .btns a {
   background-color: var(--dark-blue);
   color: var(--white);
 }
+
+.remove-form {
+  border-style: none;
+  padding: 0;
+  margin: 0;
+  width: auto;
+  display: block;
+  box-shadow: none;
+}
 /* 
 --------------------------------------
 INDEX 
@@ -429,9 +438,10 @@ MESSAGES
 }
 
 .delete {
-  padding: 4px 8px;
+  padding: 6px 12px;
+  font-weight: 900;
   border-radius: 6px;
-  margin-left: min(24px, 3vw);
+  border-style: none;
   background-color: var(--red);
   color: var(--white);
 }
