@@ -48,6 +48,11 @@ class Message {
 
     return rows[0];
   }
+
+
+  static async deleteMessage(id) {
+    await pool.query("DELETE FROM messages WHERE id = $1", [id]);
+  }
 }
 
 module.exports = Message;
