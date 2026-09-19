@@ -6,5 +6,6 @@ const requireAuth = require("../middleware/requireAuth");
 messagesRouter.get("/", messagesController.getMessages);
 messagesRouter.get("/new", requireAuth, messagesController.getMessageForm);
 messagesRouter.post("/new", messagesController.postMessageForm);
+messagesRouter.post("/:id/delete", messagesController.postDeleteMessage);
 
 module.exports = messagesRouter;
