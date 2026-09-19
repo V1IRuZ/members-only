@@ -1,5 +1,8 @@
 const { validationResult, matchedData } = require("express-validator");
-const { validateNewMessage } = require("../validators/messagesValidator");
+const {
+  validateNewMessage,
+  validateMessageId,
+} = require("../validators/messagesValidator");
 const Message = require("../models/Message");
 
 async function getMessages(req, res) {
@@ -26,8 +29,27 @@ const postMessageForm = [
   },
 ];
 
+const postDeleteMessage = [
+  validateMessageId,
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).render("invalid", {
+        status: 400,
+        name: "BadRequest",
+        errors: errors.array(),
+      });
+    }
+
+    const { id } = matchedData(req);
+    await Message.deleteMessage(id);
+    res.redirect("/");
+  },
+];
+
 module.exports = {
   getMessages,
   getMessageForm,
   postMessageForm,
+  postDeleteMessage,
 };
