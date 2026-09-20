@@ -331,6 +331,21 @@ INDEX
   padding: min(16px, 2vw);
 }
 
+.user-id {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+}
+
+.user-id span {
+  font-family: "Roboto", var(--system-ui);
+  font-size: 1.5rem;
+}
+
+.user-id img {
+  width: 32px;
+}
+
 .current-user .options {
   display: flex;
   gap: 12px;

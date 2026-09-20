@@ -17,9 +17,18 @@
         <img src="<%= currentUser.role == 0 ? '/icons/account.svg' : currentUser.role == 1 ? '/icons/account-star.svg' : '/icons/account-tie.svg' %>" alt="">
         <div class="details">
           <h1>WELCOME BACK <%= currentUser.username %>!</h1>
-          <h2>NAME: <%= currentUser.firstname %> <%= currentUser.lastname %></h2>
-          <h2>ACCOUNT: <%= currentUser.role == 0 ? "STANDARD" : currentUser.role == 1 ? "MEMBER" : "ADMIN" %></h2>
-          <h2>Posts: <%= messagesCount %></h2>
+          <div class="user-id">
+            <img src="/icons/id_card.svg" alt="">
+            <span><%= currentUser.firstname %> <%= currentUser.lastname %></span>
+          </div>
+          <div class="user-id">
+            <img src="/icons/crown.svg" alt="">
+            <span><%= currentUser.role == 0 ? "STANDARD" : currentUser.role == 1 ? "MEMBER" : "ADMIN" %></span>
+          </div>
+          <div class="user-id">
+            <img src="/icons/mail.svg" alt="">
+            <span><%= messagesCount %></span>
+          </div>
         </div>
         <div class="options">
           <a href="/messages/new" class="new-message">
