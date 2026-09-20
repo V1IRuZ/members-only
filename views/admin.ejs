@@ -12,6 +12,12 @@
   <div class="page">
     <%- include('partials/header') %>
     <main class="content">
+      <% if (currentUser?.role > 1) { %>
+      <div class="admin-rights">
+        <h2>You have administrator rights!</h2>
+        <a href="/messages">TO THE MESSAGES</a>
+      </div>
+      <% } else { %>
       <form action="/admin" method="post">
         <%- include('partials/errors', {errors: errors}) %>
         <h2>Upgrade user to administrator</h2>
@@ -20,6 +26,7 @@
           <input type="password" id="admin" name="admin">
         </div>
       </form>
+      <% } %>
     </main>
     <%- include('partials/footer') %>
   </div>
