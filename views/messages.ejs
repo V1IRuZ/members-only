@@ -15,7 +15,10 @@
       <div class="messages">
         <h2>MESSAGES</h2>
         <% if (locals.currentUser) { %>
-        <a href="/messages/new" class="new-message">+ NEW MESSAGE</a>
+        <a href="/messages/new" class="new-message">
+          <img src="/icons/add.svg" alt="">
+          <span>NEW MESSAGE</span>
+        </a>
         <% } %>
       </div>
       <%- include('partials/message-list', {msgs: msgs}) %>

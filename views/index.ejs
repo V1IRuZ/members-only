@@ -22,8 +22,11 @@
           <h2>Posts: <%= messagesCount %></h2>
         </div>
         <div class="options">
-          <a href="/messages/new">+ New Message</a>
-          <a href="/change-password">Change Password</a>
+          <a href="/messages/new" class="new-message">
+            <img src="/icons/add.svg" alt="">
+            <span>NEW MESSAGE</span>
+          </a>
+          <a href="/change-password">CHANGE PASSWORD</a>
         </div>
       </div>
       <% } else { %>

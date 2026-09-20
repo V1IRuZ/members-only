@@ -345,6 +345,15 @@ INDEX
   border: 2px solid var(--gold);
 }
 
+.current-user .options .new-message {
+  display: flex;
+  gap: 6px;
+}
+
+.current-user .options .new-message img {
+  width: 24px;
+}
+
 .posts {
   padding: 6px 12px;
   border-radius: 10px;
@@ -374,6 +383,8 @@ MESSAGES
 }
 
 .new-message {
+  display: flex;
+  gap: 6px;
   border-radius: 6px;
   padding: 6px 12px;
   border-style: none;
