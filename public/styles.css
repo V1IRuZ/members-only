@@ -504,6 +504,28 @@ MEMBERSHIP
 
 /* 
 --------------------------------------
+ADMIN
+--------------------------------------
+*/
+
+.admin-rights h2 {
+  font-size: min(2.5rem, 7vw + 8px);
+  font-family: var(--font-stack);
+  color: var(--gold);
+  text-shadow: var(--text-shadow);
+}
+
+.admin-rights a {
+  font-size: 1.5rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background-color: var(--dark-blue);
+  color: var(--white);
+  font-weight: 900;
+}
+
+/* 
+--------------------------------------
 SIGN-UP
 --------------------------------------
 */
