@@ -8,15 +8,20 @@ class Message {
     );
   }
 
-  static async getMessages() {
-    const { rows } = await pool.query(
-      `SELECT m.id, m.title, m.message, m.created_at, u.username, u.role 
+  static async getMessages(sort) {
+    let query = `SELECT m.id, m.title, m.message, m.created_at, u.username, u.role 
         FROM messages m
         JOIN users u
-        ON m.user_id = u.id
-        ORDER BY m.created_at DESC
-      `,
-    );
+        ON m.user_id = u.id      
+      `;
+      
+    if (sort === "oldest") {
+      query += "ORDER BY m.created_at ASC";
+    } else {
+      query += "ORDER BY m.created_at DESC";
+    }
+
+    const { rows } = await pool.query(query);
 
     return rows;
   }
@@ -48,7 +53,6 @@ class Message {
 
     return rows[0];
   }
-
 
   static async deleteMessage(id) {
     await pool.query("DELETE FROM messages WHERE id = $1", [id]);
