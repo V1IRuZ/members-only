@@ -6,7 +6,9 @@ const {
 const Message = require("../models/Message");
 
 async function getMessages(req, res) {
-  const msgs = await Message.getMessages();
+  const { sort } = req.query;
+  console.log(sort);
+  const msgs = await Message.getMessages(sort);
   res.render("messages", { msgs: msgs });
 }
 
