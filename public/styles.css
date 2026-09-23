@@ -397,6 +397,20 @@ MESSAGES
   gap: 24px;
 }
 
+.sort {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sort a {
+  border-radius: 6px;
+  padding: 6px 12px;
+  color: var(--white);
+  font-weight: 900;
+  background-color: var(--dark-blue);
+}
+
 .new-message {
   display: flex;
   gap: 6px;
