@@ -12,9 +12,9 @@ class Message {
     let query = `SELECT m.id, m.title, m.message, m.created_at, u.username, u.role 
         FROM messages m
         JOIN users u
-        ON m.user_id = u.id      
+        ON m.user_id = u.id 
       `;
-      
+
     if (sort === "oldest") {
       query += "ORDER BY m.created_at ASC";
     } else {
@@ -26,16 +26,21 @@ class Message {
     return rows;
   }
 
-  static async getMemberMessages() {
-    const { rows } = await pool.query(
-      `SELECT m.id, m.title, m.message, m.created_at, u.username, u.role 
+  static async getMemberMessages(sort) {
+    let query = `SELECT m.id, m.title, m.message, m.created_at, u.username, u.role 
         FROM messages m
         JOIN users u
         ON m.user_id = u.id
         WHERE u.role > 0
-        ORDER BY m.created_at DESC
-      `,
-    );
+      `;
+
+    if (sort === "oldest") {
+      query += "ORDER BY m.created_at ASC";
+    } else {
+      query += "ORDER BY m.created_at DESC";
+    }
+
+    const { rows } = await pool.query(query);
 
     return rows;
   }
