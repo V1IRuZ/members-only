@@ -13,10 +13,13 @@
     <%- include('partials/header') %>
     <main class="content">
       <div class="messages">
-        <h2>MESSAGES</h2>
+        <div class="filter">
+          <a href="/messages">ALL</a>
+          <a href="/messages/members">MEMBERS</a>
+        </div>
         <div class="sort">
-          <a href="/messages?sort=newest">NEWEST</a>
-          <a href="/messages?sort=oldest">OLDEST</a>
+          <a href="<%= path %>?sort=newest">NEWEST</a>
+          <a href="<%= path %>?sort=oldest">OLDEST</a>
         </div>
         <% if (locals.currentUser) { %>
         <a href="/messages/new" class="new-message">
