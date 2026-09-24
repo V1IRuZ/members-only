@@ -7,9 +7,14 @@ const Message = require("../models/Message");
 
 async function getMessages(req, res) {
   const { sort } = req.query;
-  console.log(sort);
   const msgs = await Message.getMessages(sort);
-  res.render("messages", { msgs: msgs });
+  res.render("messages", { msgs: msgs, path: "/messages" });
+}
+
+async function getMemberMessages(req, res) {
+  const { sort } = req.query;
+  const msgs = await Message.getMemberMessages(sort);
+  res.render("messages", { msgs: msgs, path: "/messages/members" });
 }
 
 function getMessageForm(req, res) {
@@ -51,6 +56,7 @@ const postDeleteMessage = [
 
 module.exports = {
   getMessages,
+  getMemberMessages,
   getMessageForm,
   postMessageForm,
   postDeleteMessage,
