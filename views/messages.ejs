@@ -18,16 +18,19 @@
           <a href="/messages/members">MEMBERS</a>
         </div>
         <div class="sort">
-          <a href="<%= path %>?sort=newest">NEWEST</a>
-          <a href="<%= path %>?sort=oldest">OLDEST</a>
+          <a href="<%= sort === "oldest" ? path + "?sort=newest" : path + "?sort=oldest" %>">
+            <img src="<%= sort === 'oldest' ? '/icons/sort-clock-asc.svg' : '/icons/sort-clock-desc.svg' %>" alt="">
+          </a>
         </div>
-        <% if (locals.currentUser) { %>
+      </div>
+      <% if (locals.currentUser) { %>
+      <div class="new">
         <a href="/messages/new" class="new-message">
           <img src="/icons/add.svg" alt="">
           <span>NEW MESSAGE</span>
         </a>
-        <% } %>
       </div>
+      <% } %>
       <%- include('partials/message-list', {msgs: msgs}) %>
     </main>
     <%- include('partials/footer') %>

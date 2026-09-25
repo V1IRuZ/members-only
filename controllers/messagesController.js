@@ -8,13 +8,21 @@ const Message = require("../models/Message");
 async function getMessages(req, res) {
   const { sort } = req.query;
   const msgs = await Message.getMessages(sort);
-  res.render("messages", { msgs: msgs, path: "/messages" });
+  res.render("messages", {
+    msgs: msgs,
+    path: "/messages",
+    sort,
+  });
 }
 
 async function getMemberMessages(req, res) {
   const { sort } = req.query;
   const msgs = await Message.getMemberMessages(sort);
-  res.render("messages", { msgs: msgs, path: "/messages/members" });
+  res.render("messages", {
+    msgs: msgs,
+    path: "/messages/members",
+    sort,
+  });
 }
 
 function getMessageForm(req, res) {

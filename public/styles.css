@@ -394,21 +394,44 @@ MESSAGES
 
 .messages {
   display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 2px solid var(--gold);
+}
+
+.sort,
+.filter {
+  display: flex;
+  align-items: center;
+}
+
+.filter {
   gap: 24px;
 }
 
-.sort {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.filter a {
+  background-color: var(--dark-blue);
+  padding: 2px 12px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border: 2px solid var(--gold);
+  text-shadow: var(--text-shadow);
+  font-family: var(--font-stack);
+  font-size: min(2.4rem, 5vw + 8px);
+  color: var(--gold);
 }
 
-.sort a {
-  border-radius: 6px;
-  padding: 6px 12px;
-  color: var(--white);
-  font-weight: 900;
+.sort img {
   background-color: var(--dark-blue);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 2px 4px;
+  width: 52px;
+}
+
+.new {
+  padding: 16px;
+  display: flex;
 }
 
 .new-message {
