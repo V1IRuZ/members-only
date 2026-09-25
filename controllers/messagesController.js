@@ -25,6 +25,19 @@ async function getMemberMessages(req, res) {
   });
 }
 
+async function getCurrentUserMessages(req, res) {
+  const { sort } = req.query;
+  const { id } = req.user;
+
+  const msgs = await Message.getCurrentUserMessages(sort, id);
+
+  res.render("messages", {
+    msgs: msgs,
+    path: "/messages/me",
+    sort: sort,
+  });
+}
+
 function getMessageForm(req, res) {
   res.render("message-form", { errors: null });
 }
@@ -65,6 +78,7 @@ const postDeleteMessage = [
 module.exports = {
   getMessages,
   getMemberMessages,
+  getCurrentUserMessages,
   getMessageForm,
   postMessageForm,
   postDeleteMessage,

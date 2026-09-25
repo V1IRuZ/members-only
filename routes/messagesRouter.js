@@ -6,6 +6,11 @@ const requireAdmin = require("../middleware/requireAdmin");
 
 messagesRouter.get("/", messagesController.getMessages);
 messagesRouter.get("/members", messagesController.getMemberMessages);
+messagesRouter.get(
+  "/me",
+  requireAuth,
+  messagesController.getCurrentUserMessages,
+);
 messagesRouter.get("/new", requireAuth, messagesController.getMessageForm);
 messagesRouter.post("/new", requireAuth, messagesController.postMessageForm);
 messagesRouter.post(
