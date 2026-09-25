@@ -45,6 +45,25 @@ class Message {
     return rows;
   }
 
+  static async getCurrentUserMessages(sort, id) {
+    let query = `SELECT m.id, m.title, m.message, m.created_at, u.username, u.role 
+        FROM messages m
+        JOIN users u
+        ON m.user_id = u.id
+        WHERE u.id = $1
+      `;
+
+    if (sort === "oldest") {
+      query += "ORDER BY m.created_at ASC";
+    } else {
+      query += "ORDER BY m.created_at DESC";
+    }
+
+    const { rows } = await pool.query(query, [id]);
+
+    return rows;
+  }
+
   static async getUserNumOfMessages(id) {
     const { rows } = await pool.query(
       ` SELECT COUNT(m.user_id) 
