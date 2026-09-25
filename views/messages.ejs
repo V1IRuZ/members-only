@@ -16,6 +16,9 @@
         <div class="filter">
           <a href="/messages">ALL</a>
           <a href="/messages/members">MEMBERS</a>
+          <% if (locals.currentUser) { %>
+            <a href="/messages/me">MINE</a>
+          <% } %>
         </div>
         <div class="sort">
           <a href="<%= sort === "oldest" ? path + "?sort=newest" : path + "?sort=oldest" %>">
