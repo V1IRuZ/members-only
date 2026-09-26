@@ -12,6 +12,12 @@
   <div class="page">
     <%- include('partials/header') %>
     <main class="content index">
+      <% if (locals.successMessage) { %>
+      <div class="success-message">
+        <img src="/icons/check.svg" alt="">
+        <p><%= successMessage %></p>
+      </div>
+      <% } %>
       <% if (locals.currentUser) { %>
       <div class="current-user">
         <img src="<%= currentUser.role == 0 ? '/icons/account.svg' : currentUser.role == 1 ? '/icons/account-star.svg' : '/icons/account-tie.svg' %>" alt="">
