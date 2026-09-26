@@ -10,7 +10,10 @@ const CustomNotFoundError = require("../errors/CustomNotFoundError");
 
 async function getHome(req, res) {
   const msgs = await Message.getMemberMessages();
+  const successMessage = req.session.successMessage;
   const loginMessage = req.session.messages?.[0];
+
+  delete req.session.successMessage;
   delete req.session.messages;
 
   if (req.user) {
@@ -21,12 +24,14 @@ async function getHome(req, res) {
       msgs: msgs,
       loginMessage: loginMessage,
       messagesCount: count,
+      successMessage: successMessage,
     });
   }
 
   res.render("index", {
     msgs: msgs,
     loginMessage: loginMessage,
+    successMessage: successMessage,
   });
 }
 
@@ -72,6 +77,7 @@ const postSignUp = [
       const hashedPassword = await bcrypt.hash(password, 10);
       await User.insertUser(firstname, lastname, username, hashedPassword);
 
+      req.session.successMessage = "User created successfully.";
       res.redirect("/");
     } catch (error) {
       console.error(error);
@@ -156,6 +162,7 @@ const postChangePassword = [
 
       await User.updateUserPassword(req.user.id, hashedPassword);
 
+      req.session.successMessage = "Password successfully changed.";
       res.redirect("/");
     } catch (err) {
       console.error(err);
