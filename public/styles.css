@@ -303,6 +303,29 @@ INDEX
 --------------------------------------
 */
 
+.success-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.success-message img {
+  width: 42px;
+  background-color: var(--dark-blue);
+  border: 2px solid var(--gold);
+  padding: 2px 4px;
+  border-radius: 50%;
+}
+
+.success-message p {
+  text-shadow: var(--text-shadow);
+  font-size: min(2.2rem, 5vw + 8px);
+  font-family: var(--font-stack);
+  color: var(--gold);
+}
+
 .current-user {
   display: grid;
   gap: min(24px, 3vw);
