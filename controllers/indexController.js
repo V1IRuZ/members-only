@@ -102,6 +102,8 @@ const postMembership = [
 
     const { id } = req.user;
     await User.updateUserMembership(id);
+
+    req.session.successMessage = "You have been upgraded to a member.";
     res.redirect("/");
   },
 ];
@@ -123,6 +125,8 @@ const postAdmin = [
     const { id } = req.user;
 
     await User.updateUserToAdmin(id);
+
+    req.session.successMessage = "You have been upgraded to a admin.";
     res.redirect("/");
   },
 ];
