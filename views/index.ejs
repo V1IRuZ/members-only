@@ -29,7 +29,7 @@
           </div>
           <div class="user-id">
             <img src="/icons/crown.svg" alt="">
-            <span><%= currentUser.role == 0 ? "STANDARD" : currentUser.role == 1 ? "MEMBER" : "ADMIN" %></span>
+            <span><%= currentUser.role == 0 ? "STANDARD USER" : currentUser.role == 1 ? "MEMBER" : "ADMIN" %></span>
           </div>
           <div class="user-id">
             <img src="/icons/mail.svg" alt="">
@@ -37,6 +37,10 @@
           </div>
         </div>
         <div class="options">
+          <a href="/messages/me" class="my-messages">
+            <img src="/icons/mail.svg" alt="">
+            <span>MY MESSAGES</span>
+          </a>
           <a href="/messages/new" class="new-message">
             <img src="/icons/add.svg" alt="">
             <span>NEW MESSAGE</span>

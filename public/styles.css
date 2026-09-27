@@ -381,14 +381,17 @@ INDEX
   color: var(--white);
   font-weight: 900;
   border: 2px solid var(--gold);
+  text-align: center;
 }
 
-.current-user .options .new-message {
+.current-user .options .new-message, 
+.current-user .options .my-messages {
   display: flex;
   gap: 6px;
 }
 
-.current-user .options .new-message img {
+.current-user .options .new-message img, 
+.current-user .options .my-messages img {
   width: 24px;
 }
 
