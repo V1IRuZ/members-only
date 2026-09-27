@@ -558,7 +558,9 @@ MEMBERSHIP
 .benefits {
   padding: min(16px, 1vw);
   border: 2px solid var(--gold);
+  background-color: var(--dark-blue);
   border-radius: 10px;
+  color: var(--white);
 }
 
 .benefits h2 {
