@@ -2,8 +2,13 @@
   <nav class="content">
     <ul class="main-links">
       <a href="/">
-        <img src="/icons/account.svg" alt="">
-        <span>HOME</span>
+        <% if (locals.currentUser) { %>
+        <img src="<%= currentUser.role == 0 ? '/icons/account.svg' : currentUser.role === 1 ? '/icons/account-star.svg' : '/icons/account-tie.svg' %>" alt="">
+        <span>YOU</span>
+        <% } else { %>
+        <img src="/icons/login.svg" alt="">
+        <span>LOG IN</span>
+        <% } %>
       </a>
       <li>
         <a href="/messages">
