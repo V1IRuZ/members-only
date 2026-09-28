@@ -401,8 +401,6 @@ INDEX
   padding: 6px 12px;
   border-radius: 10px;
   text-align: center;
-  border: 2px solid var(--gold);
-  background-color: var(--dark-blue);
   margin-top: min(32px, 4vw);
   font-family: var(--font-stack);
   text-shadow: var(--text-shadow);
