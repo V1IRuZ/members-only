@@ -71,6 +71,8 @@ const postDeleteMessage = [
 
     const { id } = matchedData(req);
     await Message.deleteMessage(id);
+
+    req.session.successMessage = "Message deleted."
     res.redirect("/");
   },
 ];
