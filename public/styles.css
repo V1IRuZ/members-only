@@ -189,8 +189,10 @@ footer .content {
 }
 
 footer a {
-  font-size: min(1.4rem, 4vw + 8px);
-  color: var(--white);
+  font-family: var(--font-stack);
+  text-shadow: var(--text-shadow);
+  color: var(--gold);
+  font-size: min(1.7rem, 4vw + 8px);
 }
 
 /* 
