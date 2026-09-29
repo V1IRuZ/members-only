@@ -53,6 +53,8 @@ const postMessageForm = [
     const { id } = req.user;
     const { title, message } = matchedData(req);
     await Message.insertMessage(id, title, message);
+
+    req.session.successMessage = "Message posted."
     res.redirect("/");
   },
 ];
