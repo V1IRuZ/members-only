@@ -390,13 +390,13 @@ INDEX
   text-align: center;
 }
 
-.current-user .options .new-message, 
+.current-user .options .new-message,
 .current-user .options .my-messages {
   display: flex;
   gap: 6px;
 }
 
-.current-user .options .new-message img, 
+.current-user .options .new-message img,
 .current-user .options .my-messages img {
   width: 24px;
 }
@@ -513,7 +513,12 @@ MESSAGES
 .msg .text {
   display: flex;
   flex-direction: column;
+  gap: 12px;
   justify-content: space-between;
+}
+
+.msg .text h2 {
+  margin-bottom: 12px;
 }
 
 .msg .text p {
