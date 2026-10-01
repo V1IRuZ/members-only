@@ -20,7 +20,7 @@
       <% } %>
       <% if (locals.currentUser) { %>
       <div class="current-user">
-        <img src="<%= currentUser.role == 0 ? '/icons/account.svg' : currentUser.role == 1 ? '/icons/account-star.svg' : '/icons/account-tie.svg' %>" alt="">
+        <img src="<%= currentUser.role == 0 ? '/icons/account.svg' : currentUser.role == 1 ? '/icons/account-star.svg' : '/icons/account-tie.svg' %>" alt="" class="access-img">
         <div class="details">
           <h1>WELCOME BACK <%= currentUser.username %>!</h1>
           <div class="user-id">
