@@ -151,7 +151,7 @@ header {
   display: flex;
   gap: min(24px, 1vw);
   padding: 0;
-  font-size: min(1.8rem, 5vw + 10px);
+  font-size: min(1.8rem, 3vw + 6px);
 }
 
 .main-links a {
@@ -219,7 +219,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: min(24px, 5vw);
+  padding: min(24px, 3vw);
   background-color: var(--dark-blue);
 }
 
@@ -425,9 +425,11 @@ MESSAGES
 
 .messages {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: min(24px, 2vw);
   border-bottom: 2px solid var(--gold);
+  padding: 12px;
 }
 
 .sort,
@@ -437,18 +439,17 @@ MESSAGES
 }
 
 .filter {
-  gap: 24px;
+  gap: min(24px, 2vw);
 }
 
 .filter a {
   background-color: var(--dark-blue);
   padding: 2px 12px;
-  margin-bottom: 12px;
   border-radius: 10px;
   border: 2px solid var(--gold);
   text-shadow: var(--text-shadow);
   font-family: var(--font-stack);
-  font-size: min(2.4rem, 5vw + 8px);
+  font-size: min(2.4rem, 4vw + 6px);
   color: var(--gold);
 }
 
@@ -458,6 +459,7 @@ MESSAGES
   border-radius: 10px;
   padding: 2px 4px;
   width: 52px;
+  min-width: 42px;
 }
 
 .new {
@@ -563,9 +565,16 @@ MEMBERSHIP
 }
 
 .membership {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  justify-content: center;
+  gap: min(16px, 2vw);
   align-items: center;
+  margin-bottom: 16px;
+}
+
+.membership img {
+  width: 300px;
+  height: auto;
 }
 
 .benefits {
@@ -729,6 +738,10 @@ RESPONSIVENESS
 
   .msg img {
     width: 50px;
+  }
+
+  .membership {
+    flex-direction: column;
   }
 }
 
