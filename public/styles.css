@@ -168,6 +168,10 @@ header {
   transform: scale(1.1);
 }
 
+.main-links a:focus-within {
+  outline: 3px solid var(--blue);
+}
+
 .main-links a img {
   width: 32px;
 }
@@ -198,6 +202,10 @@ footer a {
   text-shadow: var(--text-shadow);
   color: var(--gold);
   font-size: min(1.7rem, 4vw + 8px);
+}
+
+footer a:focus-within {
+  outline: 3px solid var(--blue);
 }
 
 /* 
@@ -314,9 +322,19 @@ form button:hover {
   background-color: var(--black);
 }
 
+form a:focus-within,
+form button:focus-within {
+  outline: 3px solid var(--blue);
+}
+
 .passcode {
   margin-top: 24px;
   margin-bottom: 24px;
+}
+
+form input:focus-within,
+form textarea:focus-within {
+  outline: 3px solid var(--blue);
 }
 
 /* 
@@ -408,6 +426,10 @@ INDEX
 
 .current-user .options a:hover {
   background-color: var(--black);
+}
+
+.current-user .options a:focus-within {
+  outline: 3px solid var(--blue);
 }
 
 .current-user .options .new-message,
