@@ -313,6 +313,12 @@ form a:hover,
 form button:hover {
   background-color: var(--black);
 }
+
+.passcode {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
 /* 
 --------------------------------------
 INDEX 
@@ -642,7 +648,8 @@ ADMIN
 --------------------------------------
 */
 
-.admin-rights {
+.admin-rights,
+.upgrade-admin {
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -651,7 +658,8 @@ ADMIN
   gap: 12px;
 }
 
-.admin-rights h2 {
+.admin-rights h2,
+.upgrade-admin h2 {
   font-size: min(2.5rem, 7vw + 8px);
   font-family: var(--font-stack);
   color: var(--gold);
@@ -659,7 +667,8 @@ ADMIN
   text-align: center;
 }
 
-.admin-rights {
+.admin-rights,
+.upgrade-admin {
   width: 300px;
   height: auto;
 }
