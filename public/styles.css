@@ -168,7 +168,7 @@ header {
   transform: scale(1.1);
 }
 
-.main-links a:focus-within {
+.main-links a:focus-visible {
   outline: 3px solid var(--blue);
 }
 
@@ -204,7 +204,7 @@ footer a {
   font-size: min(1.7rem, 4vw + 8px);
 }
 
-footer a:focus-within {
+footer a:focus-visible {
   outline: 3px solid var(--blue);
 }
 
@@ -322,8 +322,8 @@ form button:hover {
   background-color: var(--black);
 }
 
-form a:focus-within,
-form button:focus-within {
+form a:focus-visible,
+form button:focus-visible {
   outline: 3px solid var(--blue);
 }
 
@@ -332,8 +332,8 @@ form button:focus-within {
   margin-bottom: 24px;
 }
 
-form input:focus-within,
-form textarea:focus-within {
+form input:focus-visible,
+form textarea:focus-visible {
   outline: 3px solid var(--blue);
 }
 
@@ -428,7 +428,7 @@ INDEX
   background-color: var(--black);
 }
 
-.current-user .options a:focus-within {
+.current-user .options a:focus-visible {
   outline: 3px solid var(--blue);
 }
 
@@ -498,6 +498,11 @@ MESSAGES
 .filter a:hover,
 .sort img:hover {
   background-color: var(--black);
+}
+
+.filter a:focus-visible,
+.sort a:focus-visible {
+  outline: 3px solid var(--blue);
 }
 
 .sort img {
