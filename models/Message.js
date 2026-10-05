@@ -45,6 +45,20 @@ class Message {
     return rows;
   }
 
+  static async getLatestMemberMessages() {
+    const { rows } = await pool.query(
+      `SELECT m.id, m.title, m.message, m.created_at, u.username, u.role 
+        FROM messages m
+        JOIN users u
+        ON m.user_id = u.id
+        WHERE u.role > 0
+        ORDER BY m.created_at DESC LIMIT 10
+      `,
+    );
+
+    return rows;
+  }
+
   static async getCurrentUserMessages(sort, id) {
     let query = `SELECT m.id, m.title, m.message, m.created_at, u.username, u.role 
         FROM messages m

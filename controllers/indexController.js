@@ -9,7 +9,7 @@ const Message = require("../models/Message");
 const CustomNotFoundError = require("../errors/CustomNotFoundError");
 
 async function getHome(req, res) {
-  const msgs = await Message.getMemberMessages();
+  const msgs = await Message.getLatestMemberMessages();
   const successMessage = req.session.successMessage;
   const loginMessage = req.session.messages?.[0];
 
