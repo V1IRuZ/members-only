@@ -70,6 +70,12 @@
       <% } %>
       <h2 class="posts">Latest posts from members</h2>
       <%- include('partials/message-list', {msgs: msgs}) %>
+      <div class="more-messages">
+        <a href="/messages">
+          <img src="/icons/messages.svg" alt="">
+          <span>MORE POSTS</span>
+        </a>
+      </div>
     </main>
     <%- include('partials/footer') %>
   </div>
