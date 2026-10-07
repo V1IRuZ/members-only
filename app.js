@@ -1,8 +1,10 @@
 const express = require("express");
 const passport = require("passport");
 const session = require("express-session");
+const pgSession = require("connect-pg-simple")(session);
 const path = require("node:path");
 const configurePassport = require("./config/passport");
+const db = require("./db/pool");
 
 const PORT = process.env.PORT || 3000;
 
@@ -20,9 +22,14 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
   session({
+    store: new pgSession({
+      pool: db,
+      createTableIfMissing: true,
+    }),
     secret: process.env.SECRET_SESSION,
     resave: false,
     saveUninitialized: false,
+    cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 },
   }),
 );
 
