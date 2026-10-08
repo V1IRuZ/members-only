@@ -1,6 +1,7 @@
+const bcrypt = require("bcryptjs");
 const { Client } = require("pg");
 
-const SQL = `
+const tables = `
 DROP TABLE IF EXISTS messages, users CASCADE;
 
 CREATE TABLE IF NOT EXISTS users (
@@ -28,6 +29,22 @@ CREATE TABLE messages (
 );  
 `;
 
+const insertUsers = `
+INSERT INTO users
+  (firstname, lastname, username, password, role) VALUES  
+    ('John', 'Doe', 'john', '$1', 1),
+    ('Jane', 'Doe', 'jane', '$1', 0),
+    ('Admin', 'User', 'admin', '$1', 2) 
+`;
+
+const messages = `
+INSERT INTO messages
+  (user_id, title, message) VALLUES
+  (1, 'Hello', 'Hello World!'),
+  (3, 'Welcome', 'Hello everyone!'),
+  (2, 'Yo', '=)')
+`;
+
 async function main() {
   console.log("seeding...");
   const client = new Client({
@@ -37,8 +54,12 @@ async function main() {
     },
   });
 
+  const password = await bcrypt.hash(process.env.USER_PASSWORD, 10);
+
   await client.connect();
-  await client.query(SQL);
+  await client.query(tables);
+  await client.query(insertUsers, [password]);
+  await client.query(messages);
   await client.end();
   console.log("done");
 }
