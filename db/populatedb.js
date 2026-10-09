@@ -32,17 +32,17 @@ CREATE TABLE messages (
 const insertUsers = `
 INSERT INTO users
   (firstname, lastname, username, password, role) VALUES  
-    ('John', 'Doe', 'john', '$1', 1),
-    ('Jane', 'Doe', 'jane', '$1', 0),
-    ('Admin', 'User', 'admin', '$1', 2) 
+    ('John', 'Doe', 'john', $1, 1),
+    ('Jane', 'Doe', 'jane', $1, 0),
+    ('Admin', 'User', 'admin', $1, 2) 
 `;
 
 const messages = `
 INSERT INTO messages
-  (user_id, title, message) VALLUES
+  (user_id, title, message) VALUES
   (1, 'Membership', 'The membership code can be found on the GitHub page!!'),
-  (3, 'Hello World', 'Hello everyone!'),
-  (2, 'Become an admin', 'If you want to become an admin, look for the secret code on the project's GitHub page.')
+  (2, 'Hello World', 'Hello everyone!'),
+  (3, 'Become an admin', 'If you want to become an admin, look for the secret code on the projects GitHub page.')
 `;
 
 async function main() {
