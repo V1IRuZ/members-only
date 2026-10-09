@@ -40,9 +40,9 @@ INSERT INTO users
 const messages = `
 INSERT INTO messages
   (user_id, title, message) VALLUES
-  (1, 'Hello', 'Hello World!'),
-  (3, 'Welcome', 'Hello everyone!'),
-  (2, 'Yo', '=)')
+  (1, 'Membership', 'The membership code can be found on the GitHub page!!'),
+  (3, 'Hello World', 'Hello everyone!'),
+  (2, 'Become an admin', 'If you want to become an admin, look for the secret code on the project's GitHub page.')
 `;
 
 async function main() {
