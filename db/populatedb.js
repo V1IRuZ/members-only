@@ -2,7 +2,7 @@ const bcrypt = require("bcryptjs");
 const { Client } = require("pg");
 
 const tables = `
-DROP TABLE IF EXISTS messages, users CASCADE;
+DROP TABLE IF EXISTS messages, users, session CASCADE;
 
 CREATE TABLE IF NOT EXISTS users (
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
@@ -42,7 +42,7 @@ INSERT INTO messages
   (user_id, title, message) VALUES
   (1, 'Membership', 'The membership code can be found on the GitHub page!!'),
   (2, 'Hello World', 'Hello everyone!'),
-  (3, 'Become an admin', 'If you want to become an admin, look for the secret code on the projects GitHub page.')
+  (3, 'Become an admin', 'If you want to become an admin, look the instructions on the GitHub project page.')
 `;
 
 async function main() {
