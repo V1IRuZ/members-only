@@ -11,7 +11,10 @@ The main focus of the project was to practise user authentication, session manag
 - **connect-pg-simple:** for storing user sessions in a PostgreSQL database.
 
 ## Live example
+<a href="https://members-only-ep.onrender.com/">Members only</a>
+
 A live example of the site's membership code is `m3mb3r`.
+
 You can become an admin with the code `adm1n`.
 
 ## Environment variables
